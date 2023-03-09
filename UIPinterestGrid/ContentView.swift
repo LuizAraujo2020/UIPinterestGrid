@@ -8,18 +8,47 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-        var gridItems = [GridItem]()
-        for i in 0..<30 {
-            let randomHeight = CGFloat.random(in: 100...400)
-            gridItems.append(GridItem(height: randomHeight, title: String(i)))
-        }
+    @State var numOfColumns = 3
 
-        return VStack {
-            ScrollView {
-                PinterestGridView(gridItems: gridItems, numOfColumns: 2, spacing: 20, horizontalPadding: 20)
+    let gridItems = GridItem.getMock()
+    var body: some View {
+        VStack {
+            NavigationStack {
+                ScrollView {
+                    PinterestGridView(gridItems: gridItems, numOfColumns: numOfColumns, spacing: 20, horizontalPadding: 20)
+                }
+                .navigationTitle("Pinterest Grid")
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        removeButton
+                    }
+
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        addButton
+                    }
+                }
             }
         }
+    }
+
+    var removeButton: some View {
+        Button {
+            numOfColumns -= 1
+
+        } label: {
+            Text("Remove")
+        }
+        .disabled(numOfColumns <= 1)
+    }
+
+    var addButton: some View {
+        Button {
+            numOfColumns += 1
+
+        } label: {
+            Text("Add")
+        }
+        .disabled(numOfColumns >= 5)
     }
 }
 

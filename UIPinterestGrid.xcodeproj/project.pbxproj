@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6F77B76E29B9806D00752B92 /* GridItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F77B76D29B9806D00752B92 /* GridItem.swift */; };
 		6F9CC71529B93FC300FA5B92 /* UIPinterestGridApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9CC71429B93FC300FA5B92 /* UIPinterestGridApp.swift */; };
 		6F9CC71729B93FC300FA5B92 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9CC71629B93FC300FA5B92 /* ContentView.swift */; };
 		6F9CC71929B93FC400FA5B92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F9CC71829B93FC400FA5B92 /* Assets.xcassets */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6F77B76D29B9806D00752B92 /* GridItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridItem.swift; sourceTree = "<group>"; };
 		6F9CC71129B93FC300FA5B92 /* UIPinterestGrid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIPinterestGrid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F9CC71429B93FC300FA5B92 /* UIPinterestGridApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPinterestGridApp.swift; sourceTree = "<group>"; };
 		6F9CC71629B93FC300FA5B92 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -55,6 +57,7 @@
 			children = (
 				6F9CC71429B93FC300FA5B92 /* UIPinterestGridApp.swift */,
 				6F9CC71629B93FC300FA5B92 /* ContentView.swift */,
+				6F77B76D29B9806D00752B92 /* GridItem.swift */,
 				6F9CC72229B9453A00FA5B92 /* PinterestGridView.swift */,
 				6F9CC71829B93FC400FA5B92 /* Assets.xcassets */,
 				6F9CC71A29B93FC400FA5B92 /* Preview Content */,
@@ -142,6 +145,7 @@
 			files = (
 				6F9CC72329B9453A00FA5B92 /* PinterestGridView.swift in Sources */,
 				6F9CC71729B93FC300FA5B92 /* ContentView.swift in Sources */,
+				6F77B76E29B9806D00752B92 /* GridItem.swift in Sources */,
 				6F9CC71529B93FC300FA5B92 /* UIPinterestGridApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

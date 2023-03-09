@@ -7,12 +7,6 @@
 
 import SwiftUI
 
-struct GridItem: Identifiable {
-    let id = UUID()
-    let height: CGFloat
-    let title: String
-}
-
 struct PinterestGridView: View {
 
     struct Column: Identifiable {
@@ -20,20 +14,20 @@ struct PinterestGridView: View {
         var gridItems = [GridItem]()
     }
 
-//    let columns = [
-//        Column(gridItems: [
-//            GridItem(height: 200, title: "1"),
-//            GridItem(height:  50, title: "4"),
-//            GridItem(height: 100, title: "5"),
-//            GridItem(height: 500, title: "7")
-//        ]),
-//        Column(gridItems: [
-//            GridItem(height:  50, title: "2"),
-//            GridItem(height: 300, title: "3"),
-//            GridItem(height: 100, title: "6"),
-//            GridItem(height: 300, title: "8")
-//        ])
-//    ]
+    //    let columns = [
+    //        Column(gridItems: [
+    //            GridItem(height: 200, title: "1"),
+    //            GridItem(height:  50, title: "4"),
+    //            GridItem(height: 100, title: "5"),
+    //            GridItem(height: 500, title: "7")
+    //        ]),
+    //        Column(gridItems: [
+    //            GridItem(height:  50, title: "2"),
+    //            GridItem(height: 300, title: "3"),
+    //            GridItem(height: 100, title: "6"),
+    //            GridItem(height: 300, title: "8")
+    //        ])
+    //    ]
     let columns: [Column]
 
     var spacing: CGFloat
@@ -81,18 +75,41 @@ struct PinterestGridView: View {
                 LazyVStack(spacing: spacing) {
                     ForEach(column.gridItems) { gridItem in
 
-                        Rectangle()
-                            .foregroundColor(.blue)
-                            .frame(height: gridItem.height)
-                            .overlay {
-                                Text(gridItem.title)
-                                    .font(.system(size: 30, weight: .bold))
+                        getItemView(gridItem: gridItem)
+                            .onAppear {
+                                print(gridItem)
                             }
                     }
                 }
             }
         }
         .padding(.horizontal, horizontalPadding)
+    }
+
+    func getItemView(gridItem: GridItem) -> some View {
+        ZStack(alignment: .topLeading) {
+            GeometryReader { reader in
+                Image(gridItem.imgString)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: reader.size.width,
+                           height: reader.size.height,
+                           alignment: .center)
+            }
+
+
+            Text(gridItem.imgString)
+                .padding(.horizontal)
+                .padding(.vertical, 5)
+                .background(
+                    Capsule(style: .continuous)
+                        .foregroundColor(Color.gray.opacity(0.75))
+                )
+                .scaleEffect(0.5)
+        }
+        .frame(height: gridItem.height)
+        .frame(maxWidth: .infinity)
+        .clipShape(RoundedRectangle(cornerRadius: 13))
     }
 }
 
